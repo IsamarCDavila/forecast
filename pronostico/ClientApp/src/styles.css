@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+header .navbar {
+  background: black !important;
+  margin-bottom: auto !important;
+  border-bottom: 0 !important;
+}
+.navbar a, .navbar a:hover{
+  color: orange !important;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+.app-container {
+  outline: 1px solid red;
+  padding: 0;
+}
+.app-container .hero {
+  height: 300px;
+  background: url("assets/images/hero.jpg") no-repeat center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app-container .hero .locationInput {
+  width: 50%;
+  height: 35px;
+}
+.condiciones .recomendado {
+  justify-content: space-between;
+  display: inline-flex;
+}
+.condiciones .recomendado .card {
+  height: 80px;
+  width: 100%;
+  align-items: center;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0;
+}
+.container_pronostico .tab-content {
+  margin-top: 2%;
+}
+.container_pronostico .tab-pane .row {
+  border: 1px solid rgba(0,0,0,.125);
+  margin: 0 !important;
+  margin-bottom: 5px;
+}
+.container_pronostico .tab-pane .row .first {
+  border-left: 5px solid orange;
+}
+.container_pronostico .tab-pane .row div{
+  display: flex;
+  align-items: center;
+}
+/*medias queries*/
+@media (max-width: 767.98px) {
+  .app-container .hero .locationInput {
+    width: 90%;
+  }
+  .condiciones .recomendado .card {
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 5px;
+    height: 50px;
+  }
+}
