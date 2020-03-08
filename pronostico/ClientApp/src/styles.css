@@ -13,7 +13,7 @@ header .navbar {
   margin-bottom: auto !important;
   border-bottom: 0 !important;
 }
-.navbar a, .navbar a:hover{
+.navbar a, .navbar a:hover, .navbar a:active, .navbar a:visited{
   color: orange !important;
 }
 .btn-primary {
@@ -22,8 +22,17 @@ header .navbar {
   border-color: #1861ac;
 }
 .app-container {
-  outline: 1px solid red;
+  /*outline: 1px solid red;*/
   padding: 0;
+}
+.app-container .mapa, .app-container .condiciones {
+  margin-top: 5%;
+}
+.app-container .condiciones {
+  height: 200px;
+}
+.app-container .mapa h6{
+  margin-bottom: 2%;
 }
 .app-container .hero {
   height: 300px;
@@ -48,13 +57,24 @@ header .navbar {
   border: 1px solid rgba(0,0,0,.125);
   border-radius: 0;
 }
+.container_pronostico {
+    margin-top: 5%;
+}
 .container_pronostico .tab-content {
   margin-top: 2%;
 }
+.container_pronostico .tab-content .card{
+  width: 100%;
+  padding: 5%;
+}
 .container_pronostico .tab-pane .row {
-  border: 1px solid rgba(0,0,0,.125);
+  /*border: 1px solid rgba(0,0,0,.125);*/
   margin: 0 !important;
   margin-bottom: 5px;
+}
+.container_pronostico .tab-pane.hora_div .row {
+  border: 1px solid rgba(0,0,0,.125);
+  margin-bottom: 5px !important;
 }
 .container_pronostico .tab-pane .row .first {
   border-left: 5px solid orange;
@@ -63,6 +83,18 @@ header .navbar {
   display: flex;
   align-items: center;
 }
+.nav-item {
+  display: flex;
+}
+.nav-item button{
+  color: orange;
+  background: black;
+  border: black;
+}
+.navbar-light .navbar-toggler {
+  border-color: orange !important;
+}
+
 /*medias queries*/
 @media (max-width: 767.98px) {
   .app-container .hero .locationInput {
@@ -74,4 +106,14 @@ header .navbar {
     margin-bottom: 5px;
     height: 50px;
   }
+  .table td, .table th {
+    padding: 0.2rem;
+  }
+  #tableLabel {
+      font-size: 20px;
+  }
+  .fetch {
+    padding: 10px;
+  }
+  
 }

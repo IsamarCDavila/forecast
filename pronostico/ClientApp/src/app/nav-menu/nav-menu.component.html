@@ -3,7 +3,7 @@
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">pronostico</a>
+      <a class="navbar-brand" [routerLink]="['/']"> CLIMATE APP</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -26,16 +26,16 @@
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
+            <a class="nav-link text-dark" [routerLink]="['/forecast']">Forecast</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
+            <a class="nav-link text-dark" [routerLink]="['/historial']">Historial</a>
           </li>
 
           <li class="nav-item">
             <input type="type" name="name" value="c"  style="display: none;"/>
-            <button>C</button>
-            <button>F</button>
+            <button>°C</button>
+            <button>°F</button>
 
           </li>
 
