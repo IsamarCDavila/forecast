@@ -1,139 +1,131 @@
 
   <div class="container_pronostico container">
 
-    <nav>
-      <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">NOW</a>
-        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">HOURLY</a>
-        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">DAILY</a>
-      </div>
-    </nav>
+    <h6>NOW</h6>
+    <div class="now">
 
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-        <div class="row">
-          <div class="col-md-3 col-12">
+      <div class="row">
+        <div class="col-md-3 col-12">
 
-            <div class="card" *ngFor="let f of forecastsNow">
-              <h6>CURRENT WEATHER</h6>
-              <p class="hour">{{today | date:'shortTime' }}</p>
-              <p>dhfdhf {{f.WeatherIcon | date:'MM'}}</p>
-              <img [src]="'https://developer.accuweather.com/sites/default/files/0'+ f.WeatherIcon +'-s.png'" alt="Icon weather" />
-              <p class="temperatura">{{f.Temperature.Value}}°{{f.Temperature.Unit}}</p>
-              <p class="real">REAL FEEL: {{f.Temperature.Value}}°{{f.Temperature.Unit}}</p>
-              <p class="description"> {{f.IconPhrase}}  </p>
-            </div>
-
+          <div class="card" *ngFor="let f of forecastsNow">
+            <h6>CURRENT WEATHER</h6>
+            <p class="hour">{{today | date:'shortTime' }}</p>
+            <p>dhfdhf {{f.WeatherIcon | date:'MM'}}</p>
+            <img [src]="'https://developer.accuweather.com/sites/default/files/0'+ f.WeatherIcon +'-s.png'" alt="Icon weather" />
+            <p class="temperatura">{{f.Temperature.Value}}°{{f.Temperature.Unit}}</p>
+            <p class="real">REAL FEEL: {{f.Temperature.Value}}°{{f.Temperature.Unit}}</p>
+            <p class="description"> {{f.IconPhrase}}  </p>
           </div>
 
-
-
-
-          <div class="col-md-3 col-12">
-            <div class="card" *ngFor="let f of forecastDay">
-              <h6>TODAY</h6>
-              <p class="hour">{{today | date:'MM/dd' }}</p>
-              <img [src]="'https://developer.accuweather.com/sites/default/files/0'+ f.Day.Icon+'-s.png'" alt="Icon weather" />
-              <p class="temperatura">{{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}}</p>
-              <p class="real">REAL FEEL: {{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}}</p>
-              <p class="description">{{f.Day.IconPhrase}} </p>
-            </div>
-          </div>
-          <div class="col-md-3 col-12">
-            <div class="card" *ngFor="let f of forecastDay">
-              <h6>TONIGHT</h6>
-
-              <p class="hour">{{today | date:'MM/dd' }}</p>
-              <img [src]="'https://developer.accuweather.com/sites/default/files/'+ f.Night.Icon+'-s.png'" alt="Icon weather" />
-              <p class="temperatura">{{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}}</p>
-              <p class="real">REAL FEEL: {{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}}</p>
-              <p class="description">{{f.Night.IconPhrase}} </p>
-
-            </div>
-          </div>
-          <div class="col-md-3 col-12">
-            <div class="card" *ngFor="let f of forecastDay">
-              <h6>TOMORROW</h6>
-              <p class="hour">1:30pm</p>
-              <img src="https://developer.accuweather.com/sites/default/files/04-s.png" alt="Alternate Text" />
-              <p class="temperatura">{{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}}</p>
-              <p class="real">REAL FEEL: {{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}}</p>
-              <p class="description">{{f.Day.IconPhrase}} </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
-        <div id="accordion">
-          <div class="card">
-            <div class="card-header">
-              <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                Collapsible Group Item #1
-              </a>
-            </div>
-            <div id="collapseOne" class="collapse show" data-parent="#accordion">
-              <div class="card-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                Collapsible Group Item #2
-              </a>
-            </div>
-            <div id="collapseTwo" class="collapse" data-parent="#accordion">
-              <div class="card-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                Collapsible Group Item #3
-              </a>
-            </div>
-            <div id="collapseThree" class="collapse" data-parent="#accordion">
-              <div class="card-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </div>
-            </div>
-          </div>
         </div>
 
 
+
+
+        <div class="col-md-3 col-12">
+          <div class="card" *ngFor="let f of forecastDay">
+            <h6>TODAY</h6>
+            <p class="hour">{{today | date:'MM/dd' }}</p>
+            <img [src]="'https://developer.accuweather.com/sites/default/files/0'+ f.Day.Icon+'-s.png'" alt="Icon weather" />
+            <p class="temperatura">{{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}}</p>
+            <p class="real">REAL FEEL: {{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}}</p>
+            <p class="description">{{f.Day.IconPhrase}} </p>
+          </div>
+        </div>
+        <div class="col-md-3 col-12">
+          <div class="card" *ngFor="let f of forecastDay">
+            <h6>TONIGHT</h6>
+
+            <p class="hour">{{today | date:'MM/dd' }}</p>
+            <img [src]="'https://developer.accuweather.com/sites/default/files/'+ f.Night.Icon+'-s.png'" alt="Icon weather" />
+            <p class="temperatura">{{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}}</p>
+            <p class="real">REAL FEEL: {{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}}</p>
+            <p class="description">{{f.Night.IconPhrase}} </p>
+
+          </div>
+        </div>
+        <div class="col-md-3 col-12">
+          <div class="card" *ngFor="let f of forecastDay">
+            <h6>TOMORROW</h6>
+            <p class="hour">1:30pm</p>
+            <img src="https://developer.accuweather.com/sites/default/files/04-s.png" alt="Alternate Text" />
+            <p class="temperatura">{{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}}</p>
+            <p class="real">REAL FEEL: {{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}}</p>
+            <p class="description">{{f.Day.IconPhrase}} </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <h6>HOURLY</h6>
+    <div class="hourly">
+
+      <div class="row" *ngFor="let f of forecastHour">
+        <div class="col-1 first">
+          <p>{{f.DateTime | date:'shortTime'}}</p>
+        </div>
+        <div class="col-5">
+          <p>
+            <img [src]="'https://developer.accuweather.com/sites/default/files/0'+ f.WeatherIcon+'-s.png'" alt="Icon weather" />
+            <span class="temperatura">{{f.Temperature.Value}}°{{f.Temperature.Unit}}</span>
+          </p>
+        </div>
+        <div class="col-4">
+          <p>{{f.IconPhrase}}  </p>
+        </div>
+        <div class="col-2">
+          <p *ngIf="!f.HasPrecipitation; else elseBlock">Precip 0%</p>
+          <ng-template #elseBlock>
+            <p>Precip {{f.PrecipitationType}}</p> <br />
+            <p>Intensity {{f.PrecipitationIntensity}}</p>
+          </ng-template>
+
+        </div>
+        <div class="details row">
+          <div class="col-6">
+            <p> Real feel: {{f.RealFeelTemperature.Value}}°{{f.RealFeelTemperature.Unit}}</p>
+            <p> Snow: {{f.Snow.Value}} {{f.Snow.Unit}}</p>
+            <p> Wind: {{f.Wind.Direction.Localized}}{{f.Wind.Speed.Value}} {{f.Wind.Speed.Unit}}</p>
+          </div>
+          <div class="col-6">
+            <p> Cloud Cover: {{f.CloudCover}}%</p>
+            <p> Rain: {{f.Rain.Value}} {{f.Rain.Unit}}</p>
+            <p> Cloud Cover: {{f.Visibility.Value}}{{f.Visibility.Unit}}</p>
+            <p></p>
+          </div>
+        </div>
       </div>
 
 
-      <div class="tab-pane fade hora_div" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-        <div class="row" *ngFor="let f of forecast">
-          <div class="col-1 first">
-            <p>{{f.Date | date:'EEE MM/dd'}}</p>
-          </div>
-          <div class="col-5">
-            <p>
-              <img [src]="'https://developer.accuweather.com/sites/default/files/0'+ f.Day.Icon+'-s.png'" alt="Icon weather" />
-              <span class="alta">
-                {{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}}
-              </span>/
-              <span class="baja">{{f.Temperature.Minimum.Value}}°{{f.Temperature.Minimum.Unit}}</span>
-            </p>
-          </div>
-          <div class="col-4">
-            <p>{{f.Day.IconPhrase}}  and {{f.Night.IconPhrase}}</p>
-          </div>
-          <div class="col-2">
-            <p *ngIf="!f.Day.HasPrecipitation; else elseBlock">Precip 0%</p>
-            <ng-template #elseBlock>
-              <p>Precip {{f.Day.PrecipitationType}}</p> <br />
-              <p>Intensity {{f.Day.PrecipitationIntensity}}</p>
-            </ng-template>
-            
-          </div>
+    </div>
+    <h6>DAILY</h6>
+    <div class="dayli">
+
+      <div class="row" *ngFor="let f of forecast">
+        <div class="col-1 first">
+          <p>{{f.Date | date:'EEE MM/dd'}}</p>
+        </div>
+        <div class="col-5">
+          <p>
+            <img [src]="'https://developer.accuweather.com/sites/default/files/0'+ f.Day.Icon+'-s.png'" alt="Icon weather" />
+            <span class="alta">
+              {{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}}
+            </span>/
+            <span class="baja">{{f.Temperature.Minimum.Value}}°{{f.Temperature.Minimum.Unit}}</span>
+          </p>
+        </div>
+        <div class="col-4">
+          <p>{{f.Day.IconPhrase}}  and {{f.Night.IconPhrase}}</p>
+        </div>
+        <div class="col-2">
+          <p *ngIf="!f.Day.HasPrecipitation; else elseBlock">Precip 0%</p>
+          <ng-template #elseBlock>
+            <p>Precip {{f.Day.PrecipitationType}}</p> <br />
+            <p>Intensity {{f.Day.PrecipitationIntensity}}</p>
+          </ng-template>
+
         </div>
       </div>
     </div>
+
   </div>

@@ -14,33 +14,48 @@ export class CounterComponent implements OnInit{
   public latitude = localStorage.getItem("latitude");
   public longitude = localStorage.getItem("longitude");
 
+  public metric = localStorage.getItem("metrica");
+  public typeGrados;
+
   public forecastsNow;
   public forecastDay; // pronostico del dia dia y noche 
   public forecast; // pronosticos de los 5 los proximos 5 días
+  public forecastHour;
   
 
   
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+
+    if (this.metric === 'f') {
+      this.typeGrados = 'en-us';
+    } else {
+      this.typeGrados = 'es-PE';
+    }
 
     http.get(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=GRztmch8Ilyea0TkDlm7gdl7GsZiIEdk&q=${this.latitude}%2C${this.longitude}&language=en-us`).subscribe(result => {
       this.idLocation = result;
       this.idLocation = this.idLocation.Key;
       console.log('ID LOCATION', this.idLocation);
 
+      http.get(`http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${this.idLocation}?apikey=GRztmch8Ilyea0TkDlm7gdl7GsZiIEdk&language=${this.typeGrados}&details=true`).subscribe(result => {
+        this.forecastHour = result;
+        console.log('forescast hour', this.forecastHour);
+      }, error => console.error(error));
 
 
-      http.get(`http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/${this.idLocation}?apikey=GRztmch8Ilyea0TkDlm7gdl7GsZiIEdk&language=en-us`).subscribe(result => {
+
+      http.get(`http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/${this.idLocation}?apikey=GRztmch8Ilyea0TkDlm7gdl7GsZiIEdk&language=${this.typeGrados}`).subscribe(result => {
         this.forecastsNow = result;
         console.log('forescast current', this.forecastsNow);
       }, error => console.error(error));
 
-      http.get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${this.idLocation}?apikey=GRztmch8Ilyea0TkDlm7gdl7GsZiIEdk`).subscribe(result => {
+      http.get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${this.idLocation}?apikey=GRztmch8Ilyea0TkDlm7gdl7GsZiIEdk&language=${this.typeGrados}`).subscribe(result => {
         this.forecastDay = result;
         this.forecastDay = this.forecastDay.DailyForecasts;
         console.log('forescast day', this.forecastDay);
       }, error => console.error(error));
 
-      http.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${this.idLocation}?apikey=GRztmch8Ilyea0TkDlm7gdl7GsZiIEdk`).subscribe(result => {
+      http.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${this.idLocation}?apikey=GRztmch8Ilyea0TkDlm7gdl7GsZiIEdk&language=${this.typeGrados}`).subscribe(result => {
         this.forecast = result;
         this.forecast = this.forecast.DailyForecasts;
         console.log('forescast 5 days', this.forecast);

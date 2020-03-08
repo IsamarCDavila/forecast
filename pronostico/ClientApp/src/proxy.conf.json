@@ -1,0 +1,7 @@
+{
+  "/forecasts/*": {
+    "target": "https://dataservice.accuweather.com/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

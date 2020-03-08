@@ -15,4 +15,16 @@ export class NavMenuComponent {
   toggle() {
     this.isExpanded = !this.isExpanded;
   }
+
+  grados(g) {
+
+    if (typeof (Storage) !== "undefined") {
+      // Store
+      localStorage.setItem("metrica", g);
+    } else {
+      console.log("Sorry, your browser does not support Web Storage...");
+    }
+
+
+  }
 }
