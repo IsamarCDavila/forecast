@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nav-menu',
   templateUrl: './nav-menu.component.html',
   styleUrls: ['./nav-menu.component.css']
 })
-export class NavMenuComponent {
+export class NavMenuComponent implements OnInit {
   isExpanded = false;
+  
+  ngOnInit() {
+    localStorage.setItem("metrica", "f");
+  }
 
   collapse() {
     this.isExpanded = false;
@@ -25,6 +29,7 @@ export class NavMenuComponent {
       console.log("Sorry, your browser does not support Web Storage...");
     }
 
+    
 
   }
 }
